@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: BUSL-1.1
+    // SPDX-License-Identifier: BUSL-1.1
 
 pragma solidity 0.8.20;
 
@@ -10,6 +10,8 @@ contract ZamnaUSDC is ERC20, Ownable {
         _mint(msg.sender, 100_000 ether);
     }
 
+    // Mint ZamnaUSD tokens for "to" so It can be used to pay the protocol fees.
+    // this tokens should be transfer to the invariants asker contract.
     function mint(address _to, uint256 _amount) public onlyOwner {
         _mint(_to, _amount);
     }

@@ -5,11 +5,13 @@ import {Test, console} from "forge-std/Test.sol";
 import {ZamnaFactory} from "../src/ZamnaFactory.sol";
 import {ZamnaUSDC} from "../src/Mock/ZamnaUSDC.sol";
 import {IZamnaInvariantsEnforcer} from "../src/IZamnaInvariantsEnforcer.sol";
+import {FeeVault} from "../src/Mock/FeeVault.sol";
 
 contract ZamnaFactoryTest is Test {
     ZamnaFactory public zamnaFactory;
     ZamnaUSDC public zUSDC;
     IZamnaInvariantsEnforcer public zamnaEnforcer;
+    FeeVault public feeVault;
 
     address public owner_ZamnaPlatform = address(this);
     address public allowedDeployer = address(3);
@@ -21,14 +23,15 @@ contract ZamnaFactoryTest is Test {
     uint256 public feeAmount = 1e6;
 
     function setUp() public {
+        feeVault = new FeeVault();
         zUSDC = new ZamnaUSDC();
         feetoken = address(zUSDC);
-        zamnaFactory = new ZamnaFactory(feetoken, feeAmount);
+        zamnaFactory = new ZamnaFactory(feetoken, feeAmount, address(feeVault));
         // Permitimos a una deployer
         zamnaFactory.allowInvariantsDeployer(allowedDeployer, true);
 
         vm.prank(allowedDeployer);
-        invariantContract = zamnaFactory.deployInvariantsContract(configurer, asker);
+        invariantContract = zamnaFactory.deployInvariantsContract(configurer);
     }
 
     function test_InvariantDeployment() public view {
@@ -45,16 +48,11 @@ contract ZamnaFactoryTest is Test {
         vm.prank(allowedDeployer);
         zamnaFactory.Change_Configurer_Role(asker, invariantContract);
         assertEq(asker, zamnaEnforcer.configurer(), "Configurer not Changed");
-
-        // Validamos que cambia el asker
-        vm.prank(allowedDeployer);
-        zamnaFactory.Change_Asker_Role(configurer, invariantContract);
-        assertEq(configurer, zamnaEnforcer.asker(), "Asker not Changed");
     }
 
     function test_FeeToken_FeeAmount_Change() public {
         vm.prank(allowedDeployer);
-        address invariantContract2 = zamnaFactory.deployInvariantsContract(configurer, asker);
+        address invariantContract2 = zamnaFactory.deployInvariantsContract(configurer);
 
         // Primer invariant contract
         IZamnaInvariantsEnforcer zamnaEnforcer1 = IZamnaInvariantsEnforcer(invariantContract);

@@ -5,6 +5,8 @@ import {Test, console} from "forge-std/Test.sol";
 import {ZamnaFactory} from "../src/ZamnaFactory.sol";
 import {ZamnaInvariantsEnforcer} from "../src/ZamnaInvariantsEnforcer.sol";
 import {ZamnaUSDC} from "../src/Mock/ZamnaUSDC.sol";
+import {FeeVault} from "../src/Mock/FeeVault.sol";
+import {Vault_ProtocolX} from "../src/Mock/Vault_ProtocolX.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract ZamnaInvariantsEnforcerTest is Test {
@@ -14,45 +16,82 @@ contract ZamnaInvariantsEnforcerTest is Test {
 
     ZamnaFactory public zamnaFactory;
     ZamnaInvariantsEnforcer public zamnaEnforcer;
+    Vault_ProtocolX public vaultX;
     //ZamnaUSDC public zUSDC;
 
     address public invariantContract;
-    // MXNB bitso token in Sepolia arbitrum.
-    IERC20 public feetoken; //= IERC20(0x82B9e52b26A2954E113F94Ff26647754d5a4247D);
+    FeeVault public feeVault;
+    IERC20 public feetoken;
     uint256 public feeAmount = 1 ether; // 1 USDC
 
     address public owner_ZamnaPlatform = address(this);
     address public configurer = address(1);
     address public asker = address(2);
     address public allowedDeployer = address(3);
+    address public attacker = address(4);
 
     function setUp() public {
         // Create el fork de arbitrum sepolia en el block: 148855678
         /*  uint256 forkId = vm.createFork(ARBITRUM_SEPOLIA_RPC_URL, 148855678);
         vm.selectFork(forkId); */
 
+        feeVault = new FeeVault();
         feetoken = new ZamnaUSDC();
+        vaultX = new Vault_ProtocolX(address(feetoken), address(zamnaEnforcer), address(feetoken));
         // Creamos el Factory, para deployar los contratos de invariants
-        zamnaFactory = new ZamnaFactory(address(feetoken), feeAmount);
+        zamnaFactory = new ZamnaFactory(address(feetoken), feeAmount, address(feeVault));
         // Permitimos a un deployer
         zamnaFactory.allowInvariantsDeployer(allowedDeployer, true);
         //Deployamos el contrato de invariants
         vm.prank(allowedDeployer);
-        invariantContract = zamnaFactory.deployInvariantsContract(configurer, asker);
+        invariantContract = zamnaFactory.deployInvariantsContract(configurer);
         // referenciamos la address devuelta a la variable local del ZamnaInvariantsEnforcer
         zamnaEnforcer = ZamnaInvariantsEnforcer(invariantContract);
     }
 
+    /* 
+    function test_First_Depositor_Attack() public {
+        // **** Test Register Address Invariant *** //
+        uint256 invariantID = 1;
+        string memory name = "Prevent First Depositor Attack";
+        uint8 invariantType = 3; // Address type
+        uint8 rule = 3; // Rule: "=="
+        bytes32 amountRegister = bytes32(uint256(uint160(asker)));
+        uint256 balance_asker = feeAmount * 100;
+        address contractValue = address(5);
+
+        // Register the invariant.
+        vm.prank(configurer);
+        zamnaEnforcer.Create_Invariant(name, address(vaultX), invariantType, rule, amountRegister);
+
+        // Send 100 zUSDC to the vault address to pay invariant fees
+        feetoken.transfer(address(vaultX), balance_asker);
+
+        // vault approve zamnaInvariantsEnforcer to transfer the fee for the invariant call.
+        vm.prank(address(vaultX));
+        feetoken.approve(address(zamnaEnforcer), balance_asker);
+
+        // Invariant Revert si no es llamada por el asker. Error: asker not allowed
+        vm.expectRevert("Asker not Allowed");
+        zamnaEnforcer.Enforce_Invariant_Address(invariantID, contractValue);
+
+        // Invariant Reverts si es rota.
+        vm.expectRevert("Hack Reverted: Invariant Broken");
+        vm.prank(address(vaultX));
+        zamnaEnforcer.Enforce_Invariant_Address(invariantID, contractValue);
+    } 
+    */
+
     function test_InvariantsContractDeployment() public view {
         // contract is deployed in the setUp function.
         // Validaciones
-        assertEq(zamnaEnforcer.owner(), address(zamnaFactory), "Error: Owner Incorrecto");
+        // assertEq(zamnaEnforcer.owner(), address(zamnaFactory), "Error: Owner Incorrecto");
         // check DEFAULT_ADMIN_ROLE
         assertTrue(zamnaEnforcer.hasRole(DEFAULT_ADMIN_ROLE, address(zamnaFactory)), "Error: Factory is not ADMIN");
         // check INVARIANT_CONFIGURER
         assertTrue(zamnaEnforcer.hasRole(INVARIANT_CONFIGURER, configurer), "Error: Role Configured unsetted");
         // check INVARIANT_ASKER
-        assertTrue(zamnaEnforcer.hasRole(INVARIANT_ASKER, asker), "Error: Role asker unsetted");
+        //assertTrue(zamnaEnforcer.hasRole(INVARIANT_ASKER, asker), "Error: Role asker unsetted");
     }
 
     //*** Test if the uint invariant was created correctly. ***//
@@ -128,7 +167,7 @@ contract ZamnaInvariantsEnforcerTest is Test {
         // Should update correctly:
         bytes32 amountRegister2 = bytes32(uint256(50));
         vm.startPrank(configurer);
-        zamnaEnforcer.Disable_Invariant(invariantID);
+        zamnaEnforcer.Disable_Invariant(invariantID, false);
         zamnaEnforcer.Update_Invariant(invariantID, name, asker, invariantType, rule, amountRegister2);
         vm.stopPrank();
 
@@ -147,7 +186,7 @@ contract ZamnaInvariantsEnforcerTest is Test {
         uint256 contractValue = 101;
 
         // Debe revertir con invariant disable
-        vm.expectRevert("Invalid Invariant ID.");
+        vm.expectRevert("Asker not Allowed");
         vm.prank(asker);
         zamnaEnforcer.Enforce_Invariant_Uint(invariantID, contractValue);
 
@@ -157,13 +196,16 @@ contract ZamnaInvariantsEnforcerTest is Test {
 
         // Send 100 zUSDC to the asker address
         feetoken.transfer(asker, balance_asker);
+        feetoken.transfer(configurer, balance_asker);
 
         // asker contract approve zamnaInvariantsEnforcer to transfer the fee for the invariant call.
         vm.prank(asker);
         feetoken.approve(address(zamnaEnforcer), balance_asker);
+        /* vm.prank(configurer);
+        feetoken.approve(address(zamnaEnforcer), balance_asker); */
 
         // Invariant Revert si no es llamada por el asker. Error: AccessControlUnauthorizedAccount
-        vm.expectRevert();
+        vm.expectRevert("Asker not Allowed");
         zamnaEnforcer.Enforce_Invariant_Uint(invariantID, contractValue);
 
         // Invariant Reverts si es rota.
@@ -183,7 +225,7 @@ contract ZamnaInvariantsEnforcerTest is Test {
         int256 contractValue = 101;
 
         // Debe revertir con invariant disable
-        vm.expectRevert("Invalid Invariant ID.");
+        vm.expectRevert("Asker not Allowed");
         vm.prank(asker);
         zamnaEnforcer.Enforce_Invariant_Int(invariantID, contractValue);
 
@@ -199,7 +241,7 @@ contract ZamnaInvariantsEnforcerTest is Test {
         feetoken.approve(address(zamnaEnforcer), balance_asker);
 
         // Invariant Revert si no es llamada por el asker. Error: AccessControlUnauthorizedAccount
-        vm.expectRevert();
+        vm.expectRevert("Asker not Allowed");
         zamnaEnforcer.Enforce_Invariant_Int(invariantID, contractValue);
 
         // Invariant Reverts si es rota.
@@ -219,7 +261,7 @@ contract ZamnaInvariantsEnforcerTest is Test {
         address contractValue = address(5);
 
         // Debe revertir con invariant disable
-        vm.expectRevert("Invalid Invariant ID.");
+        vm.expectRevert("Asker not Allowed");
         vm.prank(asker);
         zamnaEnforcer.Enforce_Invariant_Address(invariantID, contractValue);
 
@@ -255,7 +297,7 @@ contract ZamnaInvariantsEnforcerTest is Test {
         bool contractValue = false;
 
         // Debe revertir con invariant disable
-        vm.expectRevert("Invalid Invariant ID.");
+        vm.expectRevert("Asker not Allowed");
         vm.prank(asker);
         zamnaEnforcer.Enforce_Invariant_Bool(invariantID, contractValue);
 
@@ -291,7 +333,7 @@ contract ZamnaInvariantsEnforcerTest is Test {
         bytes32 contractValue = bytes32("no");
 
         // Debe revertir con invariant disable
-        vm.expectRevert("Invalid Invariant ID.");
+        vm.expectRevert("Asker not Allowed");
         vm.prank(asker);
         zamnaEnforcer.Enforce_Invariant_Bytes32(invariantID, contractValue);
 

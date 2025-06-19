@@ -1,0 +1,193 @@
+export const zFactoryAbi = [
+	{
+		type: "constructor",
+		inputs: [
+			{ name: "_feeToken", type: "address", internalType: "address" },
+			{ name: "_feeAmount", type: "uint256", internalType: "uint256" },
+			{ name: "_feeVault", type: "address", internalType: "address" },
+		],
+		stateMutability: "nonpayable",
+	},
+	{
+		type: "function",
+		name: "Change_Configurer_Role",
+		inputs: [
+			{ name: "_newConfigurer", type: "address", internalType: "address" },
+			{ name: "_invariantContract", type: "address", internalType: "address" },
+		],
+		outputs: [],
+		stateMutability: "nonpayable",
+	},
+	{
+		type: "function",
+		name: "allowAdminConfigurer",
+		inputs: [
+			{ name: "_invariantContract", type: "address", internalType: "address" },
+			{ name: "_configurer", type: "address", internalType: "address" },
+			{ name: "_isAllowed", type: "bool", internalType: "bool" },
+		],
+		outputs: [],
+		stateMutability: "nonpayable",
+	},
+	{
+		type: "function",
+		name: "allowInvariantsDeployer",
+		inputs: [
+			{ name: "_deployer", type: "address", internalType: "address" },
+			{ name: "_isAllowed", type: "bool", internalType: "bool" },
+		],
+		outputs: [],
+		stateMutability: "nonpayable",
+	},
+	{
+		type: "function",
+		name: "contractsDeployedByUser",
+		inputs: [
+			{ name: "deployer", type: "address", internalType: "address" },
+			{ name: "", type: "uint256", internalType: "uint256" },
+		],
+		outputs: [{ name: "invariantContracts", type: "address", internalType: "address" }],
+		stateMutability: "view",
+	},
+	{
+		type: "function",
+		name: "deployInvariantsContract",
+		inputs: [{ name: "_configurer", type: "address", internalType: "address" }],
+		outputs: [{ name: "_invariantContract", type: "address", internalType: "address" }],
+		stateMutability: "nonpayable",
+	},
+	{
+		type: "function",
+		name: "feeAmount",
+		inputs: [],
+		outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
+		stateMutability: "view",
+	},
+	{
+		type: "function",
+		name: "feeToken",
+		inputs: [],
+		outputs: [{ name: "", type: "address", internalType: "contract IERC20" }],
+		stateMutability: "view",
+	},
+	{
+		type: "function",
+		name: "feeVault",
+		inputs: [],
+		outputs: [{ name: "", type: "address", internalType: "address" }],
+		stateMutability: "view",
+	},
+	{
+		type: "function",
+		name: "isAllowedAdminConfigurer",
+		inputs: [
+			{ name: "InvariantContract", type: "address", internalType: "address" },
+			{ name: "deployer", type: "address", internalType: "address" },
+		],
+		outputs: [{ name: "isAllowed", type: "bool", internalType: "bool" }],
+		stateMutability: "view",
+	},
+	{
+		type: "function",
+		name: "isAllowedDeployer",
+		inputs: [{ name: "InvariantsDeployer", type: "address", internalType: "address" }],
+		outputs: [{ name: "isAllowed", type: "bool", internalType: "bool" }],
+		stateMutability: "view",
+	},
+	{
+		type: "function",
+		name: "isInvariantContractActive",
+		inputs: [{ name: "invariantContract", type: "address", internalType: "address" }],
+		outputs: [{ name: "activo", type: "bool", internalType: "bool" }],
+		stateMutability: "view",
+	},
+	{
+		type: "function",
+		name: "numContractsDeployedByUser",
+		inputs: [{ name: "deployer", type: "address", internalType: "address" }],
+		outputs: [{ name: "numContracts", type: "uint32", internalType: "uint32" }],
+		stateMutability: "view",
+	},
+	{
+		type: "function",
+		name: "owner",
+		inputs: [],
+		outputs: [{ name: "", type: "address", internalType: "address" }],
+		stateMutability: "view",
+	},
+	{ type: "function", name: "renounceOwnership", inputs: [], outputs: [], stateMutability: "nonpayable" },
+	{
+		type: "function",
+		name: "setFeeAmount",
+		inputs: [
+			{ name: "_newAmount", type: "uint256", internalType: "uint256" },
+			{ name: "_invariantContract", type: "address", internalType: "address" },
+		],
+		outputs: [],
+		stateMutability: "nonpayable",
+	},
+	{
+		type: "function",
+		name: "setFeeToken",
+		inputs: [
+			{ name: "_newFeeToken", type: "address", internalType: "address" },
+			{ name: "_invariantContract", type: "address", internalType: "address" },
+		],
+		outputs: [],
+		stateMutability: "nonpayable",
+	},
+	{
+		type: "function",
+		name: "transferOwnership",
+		inputs: [{ name: "newOwner", type: "address", internalType: "address" }],
+		outputs: [],
+		stateMutability: "nonpayable",
+	},
+	{
+		type: "event",
+		name: "Admin_Configurer_Allowed",
+		inputs: [
+			{ name: "invariantContract", type: "address", indexed: true, internalType: "address" },
+			{ name: "newAdminConfigurer", type: "address", indexed: false, internalType: "address" },
+			{ name: "isAllowed", type: "bool", indexed: false, internalType: "bool" },
+		],
+		anonymous: false,
+	},
+	{
+		type: "event",
+		name: "InvariantsContractDeployed",
+		inputs: [
+			{ name: "invariantContract", type: "address", indexed: false, internalType: "address" },
+			{ name: "deployer", type: "address", indexed: false, internalType: "address" },
+		],
+		anonymous: false,
+	},
+	{
+		type: "event",
+		name: "Invariants_Deployer_Allowed",
+		inputs: [
+			{ name: "newDeployer", type: "address", indexed: false, internalType: "address" },
+			{ name: "isAllowed", type: "bool", indexed: false, internalType: "bool" },
+		],
+		anonymous: false,
+	},
+	{
+		type: "event",
+		name: "OwnershipTransferred",
+		inputs: [
+			{ name: "previousOwner", type: "address", indexed: true, internalType: "address" },
+			{ name: "newOwner", type: "address", indexed: true, internalType: "address" },
+		],
+		anonymous: false,
+	},
+	{
+		type: "error",
+		name: "OwnableInvalidOwner",
+		inputs: [{ name: "owner", type: "address", internalType: "address" }],
+	},
+	{
+		type: "error",
+		name: "OwnableUnauthorizedAccount",
+		inputs: [{ name: "account", type: "address", internalType: "address" }],
+	},
+] as const;
