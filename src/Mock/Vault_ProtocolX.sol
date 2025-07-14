@@ -20,7 +20,10 @@ contract Vault_ProtocolX {
         zamnaEnforcer = IZamnaInvariantsEnforcer(_zamnaEnforcer);
         token = IERC20(_token);
         feeToken = IERC20(_feeToken);
-        feeAmount = 1 ether;
+        // MxnB maneja 6 decimales.
+        feeAmount = 1e6; // 1 MxnB
+
+        feeToken.approve(_zamnaEnforcer, 10e6);
     }
     // Users deposit tokens and they get shares in the vault for it.
 

@@ -12,7 +12,7 @@
     "@reown/walletkit": "^1.2.6",
     "@walletconnect/core": "^2.21.2",
     "@walletconnect/utils": "^2.21.2",
-    "dotenv": "^16.5.0",
+    "dotenv": "^16.6.1",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

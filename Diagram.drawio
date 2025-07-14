@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="pwtUT5YIVG2CGvwZ918b" name="ZamnaSec Diagram">
-        <mxGraphModel dx="1189" dy="1284" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1600" pageHeight="900" background="light-dark(#FFFFFF,#E6E6E6)" math="0" shadow="0">
+        <mxGraphModel dx="1307" dy="1211" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1600" pageHeight="900" background="light-dark(#FFFFFF,#E6E6E6)" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -159,11 +159,32 @@
                 <mxCell id="36" value="&lt;span style=&quot;font-weight: 700;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;ZamnaSec Platform Factory:&lt;/font&gt;&lt;/span&gt;&lt;div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 700;&quot;&gt;&lt;font&gt;&lt;span style=&quot;font-weight: 400; text-align: left; text-wrap-mode: nowrap;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 700;&quot;&gt;&lt;font&gt;&lt;span style=&quot;font-weight: 400; text-align: left; text-wrap-mode: nowrap;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;* Create Invariants&lt;/font&gt;&lt;/span&gt;&lt;div style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0)); font-weight: 400; text-align: left; text-wrap-mode: nowrap;&quot;&gt;* Config / Modify Invariants&amp;nbsp;&lt;/div&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=none;strokeColor=light-dark(#666666,#000000);gradientColor=#b3b3b3;" parent="1" vertex="1">
                     <mxGeometry x="639" y="-154" width="265" height="127" as="geometry"/>
                 </mxCell>
+                <mxCell id="6icQQgaMCzSKKaZWPu4w-40" value="" style="edgeStyle=none;html=1;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" edge="1" parent="1" source="37" target="6icQQgaMCzSKKaZWPu4w-38">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Protocol Contract" style="swimlane;fillColor=none;strokeColor=light-dark(#000000,#000000);fontColor=light-dark(#000000,#000000);" vertex="1" parent="1">
+                    <mxGeometry x="129" y="534" width="160" height="122" as="geometry"/>
+                </mxCell>
+                <mxCell id="6icQQgaMCzSKKaZWPu4w-37" value="1.- Function Withdraw&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;2.- Function Deposit&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;fontColor=light-dark(#000000,#000000);" vertex="1" parent="37">
+                    <mxGeometry x="7" y="39" width="135" height="41" as="geometry"/>
+                </mxCell>
+                <mxCell id="6icQQgaMCzSKKaZWPu4w-38" value="ZamnaSec Invariants" style="swimlane;fillColor=none;strokeColor=light-dark(#000000,#000000);fontColor=light-dark(#000000,#000000);" vertex="1" parent="1">
+                    <mxGeometry x="356" y="534" width="329" height="122" as="geometry"/>
+                </mxCell>
+                <mxCell id="6icQQgaMCzSKKaZWPu4w-39" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;1.- Get the Invariant Enforcement Call.&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;2.- Validate The Invariant.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;3.- If Invariant is broken, Revert the Tx to avoid a Hack.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;If not allows the Tx finished successfully.&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;fontColor=light-dark(#000000,#000000);" vertex="1" parent="6icQQgaMCzSKKaZWPu4w-38">
+                    <mxGeometry x="18" y="35" width="311" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="6icQQgaMCzSKKaZWPu4w-42" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=light-dark(#000000,#000000);" edge="1" parent="1" source="6icQQgaMCzSKKaZWPu4w-41" target="37">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6icQQgaMCzSKKaZWPu4w-41" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;Users&lt;/font&gt;" style="shape=actor;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#000000);fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="31" y="550" width="40" height="60" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
     <diagram id="Tan7RwusTm7ajwb-MEms" name="Contracts">
-        <mxGraphModel dx="1119" dy="811" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+        <mxGraphModel dx="907" dy="811" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -234,85 +255,85 @@
         </mxGraphModel>
     </diagram>
     <diagram id="pfBdMsYwwfKD6ljTWNfz" name="Zamna Wallet Diagram">
-        <mxGraphModel dx="911" dy="1311" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="light-dark(#FFFFFF,#E6E6E6)" math="0" shadow="0">
+        <mxGraphModel dx="907" dy="1311" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" background="light-dark(#FFFFFF,#E6E6E6)" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-3" style="edgeStyle=none;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" edge="1" parent="1" source="9XgYCPeeqAZH0s1UZtoL-1" target="1NxfVGfBPiku6Kh4B55l-1">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-3" style="edgeStyle=none;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" parent="1" source="9XgYCPeeqAZH0s1UZtoL-1" target="1NxfVGfBPiku6Kh4B55l-1" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="9XgYCPeeqAZH0s1UZtoL-1" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;User&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Wallet&lt;/font&gt;&lt;/div&gt;" style="shape=actor;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#000000);fillColor=none;fontColor=light-dark(#000000,#000000);" vertex="1" parent="1">
+                <mxCell id="9XgYCPeeqAZH0s1UZtoL-1" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;User&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Wallet&lt;/font&gt;&lt;/div&gt;" style="shape=actor;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#000000);fillColor=none;fontColor=light-dark(#000000,#000000);" parent="1" vertex="1">
                     <mxGeometry x="85" y="5.5" width="40" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-6" value="" style="edgeStyle=none;html=1;strokeColor=light-dark(#000000,#000000);" edge="1" parent="1" source="1NxfVGfBPiku6Kh4B55l-1">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-6" value="" style="edgeStyle=none;html=1;strokeColor=light-dark(#000000,#000000);" parent="1" source="1NxfVGfBPiku6Kh4B55l-1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="529" y="34.888379204893" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-1" value="Invariant contract enforced" style="swimlane;fillColor=none;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" vertex="1" parent="1">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-1" value="Invariant contract enforced" style="swimlane;fillColor=none;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" parent="1" vertex="1">
                     <mxGeometry x="209" y="-15" width="240" height="101" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-2" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Codigo Swap, addLiquidity.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Invariant rules&lt;/font&gt;" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;html=1;fontColor=light-dark(#000000,#000000);" vertex="1" parent="1NxfVGfBPiku6Kh4B55l-1">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-2" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Codigo Swap, addLiquidity.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Invariant rules&lt;/font&gt;" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;html=1;fontColor=light-dark(#000000,#000000);" parent="1NxfVGfBPiku6Kh4B55l-1" vertex="1">
                     <mxGeometry x="15" y="33" width="163" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-4" value="Uniswap" style="swimlane;fillColor=none;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" vertex="1" parent="1">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-4" value="Uniswap" style="swimlane;fillColor=none;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" parent="1" vertex="1">
                     <mxGeometry x="529" y="-23" width="254" height="99" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-5" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;function AddLiquidity&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;span style=&quot;background-color: transparent; color: rgb(192, 192, 192);&quot;&gt;function&amp;nbsp;&amp;nbsp;&lt;/span&gt;Swap&lt;/font&gt;&lt;/div&gt;" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=light-dark(#000000,#000000);html=1;" vertex="1" parent="1NxfVGfBPiku6Kh4B55l-4">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-5" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;function AddLiquidity&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;span style=&quot;background-color: transparent; color: rgb(192, 192, 192);&quot;&gt;function&amp;nbsp;&amp;nbsp;&lt;/span&gt;Swap&lt;/font&gt;&lt;/div&gt;" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=light-dark(#000000,#000000);html=1;" parent="1NxfVGfBPiku6Kh4B55l-4" vertex="1">
                     <mxGeometry x="16" y="28.5" width="128" height="41" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-14" style="edgeStyle=none;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" edge="1" parent="1" source="1NxfVGfBPiku6Kh4B55l-15" target="1NxfVGfBPiku6Kh4B55l-17">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-14" style="edgeStyle=none;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" parent="1" source="1NxfVGfBPiku6Kh4B55l-15" target="1NxfVGfBPiku6Kh4B55l-17" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-15" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;User&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Wallet&lt;/font&gt;&lt;/div&gt;" style="shape=actor;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#000000);fillColor=none;fontColor=light-dark(#000000,#000000);" vertex="1" parent="1">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-15" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;User&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Wallet&lt;/font&gt;&lt;/div&gt;" style="shape=actor;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#000000);fillColor=none;fontColor=light-dark(#000000,#000000);" parent="1" vertex="1">
                     <mxGeometry x="85" y="256.5" width="40" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-16" value="" style="edgeStyle=none;html=1;strokeColor=light-dark(#000000,#000000);" edge="1" parent="1" source="1NxfVGfBPiku6Kh4B55l-17" target="1NxfVGfBPiku6Kh4B55l-19">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-16" value="" style="edgeStyle=none;html=1;strokeColor=light-dark(#000000,#000000);" parent="1" source="1NxfVGfBPiku6Kh4B55l-17" target="1NxfVGfBPiku6Kh4B55l-19" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-26" value="3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1NxfVGfBPiku6Kh4B55l-16">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-26" value="3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1NxfVGfBPiku6Kh4B55l-16" vertex="1" connectable="0">
                     <mxGeometry x="-0.4891" y="1" relative="1" as="geometry">
                         <mxPoint x="18" y="1" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-24" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" edge="1" parent="1" source="1NxfVGfBPiku6Kh4B55l-17" target="1NxfVGfBPiku6Kh4B55l-21">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-24" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" parent="1" source="1NxfVGfBPiku6Kh4B55l-17" target="1NxfVGfBPiku6Kh4B55l-21" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-25" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1NxfVGfBPiku6Kh4B55l-24">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-25" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1NxfVGfBPiku6Kh4B55l-24" vertex="1" connectable="0">
                     <mxGeometry x="-0.2746" y="4" relative="1" as="geometry">
                         <mxPoint x="1" y="10" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-17" value="ZamnaDelegate Swap contract" style="swimlane;fillColor=none;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" vertex="1" parent="1">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-17" value="ZamnaDelegate Swap contract" style="swimlane;fillColor=none;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" parent="1" vertex="1">
                     <mxGeometry x="207" y="236" width="240" height="101" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-18" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Codigo Swap, addLiquidity.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Call Invariant rules&lt;/font&gt;" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;html=1;fontColor=light-dark(#000000,#000000);" vertex="1" parent="1NxfVGfBPiku6Kh4B55l-17">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-18" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Codigo Swap, addLiquidity.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Call Invariant rules&lt;/font&gt;" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;html=1;fontColor=light-dark(#000000,#000000);" parent="1NxfVGfBPiku6Kh4B55l-17" vertex="1">
                     <mxGeometry x="15" y="33" width="163" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-19" value="Zamna Invariant Rules Contract" style="swimlane;fillColor=none;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" vertex="1" parent="1">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-19" value="Zamna Invariant Rules Contract" style="swimlane;fillColor=none;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" parent="1" vertex="1">
                     <mxGeometry x="543" y="234" width="227" height="101" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-20" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Invariant Rules&lt;/font&gt;&lt;/div&gt;" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=light-dark(#000000,#000000);html=1;" vertex="1" parent="1NxfVGfBPiku6Kh4B55l-19">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-20" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;Invariant Rules&lt;/font&gt;&lt;/div&gt;" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=light-dark(#000000,#000000);html=1;" parent="1NxfVGfBPiku6Kh4B55l-19" vertex="1">
                     <mxGeometry x="15" y="33" width="98" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-27" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeColor=light-dark(#000000,#000000);" edge="1" parent="1" source="1NxfVGfBPiku6Kh4B55l-21" target="1NxfVGfBPiku6Kh4B55l-17">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-27" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeColor=light-dark(#000000,#000000);" parent="1" source="1NxfVGfBPiku6Kh4B55l-21" target="1NxfVGfBPiku6Kh4B55l-17" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-28" value="Update Zamna SC state&lt;div&gt;&lt;font style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(2)&lt;/font&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1NxfVGfBPiku6Kh4B55l-27">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-28" value="Update Zamna SC state&lt;div&gt;&lt;font style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(2)&lt;/font&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1NxfVGfBPiku6Kh4B55l-27" vertex="1" connectable="0">
                     <mxGeometry x="-0.4405" y="-4" relative="1" as="geometry">
                         <mxPoint x="1" y="-12" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-21" value="Uniswap Contract" style="swimlane;fillColor=none;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" vertex="1" parent="1">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-21" value="Uniswap Contract" style="swimlane;fillColor=none;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" parent="1" vertex="1">
                     <mxGeometry x="207" y="407" width="240" height="109" as="geometry"/>
                 </mxCell>
-                <mxCell id="1NxfVGfBPiku6Kh4B55l-22" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;function AddLiquidity&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;span style=&quot;background-color: transparent; color: rgb(192, 192, 192);&quot;&gt;function&amp;nbsp;&amp;nbsp;&lt;/span&gt;Swap&lt;/font&gt;&lt;/div&gt;" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=light-dark(#000000,#000000);html=1;" vertex="1" parent="1NxfVGfBPiku6Kh4B55l-21">
+                <mxCell id="1NxfVGfBPiku6Kh4B55l-22" value="&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;function AddLiquidity&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;span style=&quot;background-color: transparent; color: rgb(192, 192, 192);&quot;&gt;function&amp;nbsp;&amp;nbsp;&lt;/span&gt;Swap&lt;/font&gt;&lt;/div&gt;" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=light-dark(#000000,#000000);html=1;" parent="1NxfVGfBPiku6Kh4B55l-21" vertex="1">
                     <mxGeometry x="15" y="33" width="128" height="41" as="geometry"/>
                 </mxCell>
-                <mxCell id="uaoADUQvu7A7s3mqbCf--2" value="EIP 7702 WALLETS" style="swimlane;fillColor=none;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" vertex="1" parent="1">
+                <mxCell id="uaoADUQvu7A7s3mqbCf--2" value="EIP 7702 WALLETS" style="swimlane;fillColor=none;fontColor=light-dark(#000000,#000000);strokeColor=light-dark(#000000,#000000);" parent="1" vertex="1">
                     <mxGeometry x="240" y="-281" width="677" height="223" as="geometry"/>
                 </mxCell>
-                <mxCell id="uaoADUQvu7A7s3mqbCf--3" value="*&amp;nbsp;" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=light-dark(#000000,#000000);html=1;" vertex="1" parent="uaoADUQvu7A7s3mqbCf--2">
+                <mxCell id="uaoADUQvu7A7s3mqbCf--3" value="*&amp;nbsp;" style="text;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=light-dark(#000000,#000000);html=1;" parent="uaoADUQvu7A7s3mqbCf--2" vertex="1">
                     <mxGeometry x="16" y="28.5" width="26" height="26" as="geometry"/>
                 </mxCell>
             </root>
